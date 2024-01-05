@@ -9,15 +9,17 @@ function calculator() {
     }
     console.log(`Result: ${currentResult}`);
   }
-  function subtract(number) {
-    currentResult -= number;
+  function subtract(...numbers) {
+    for (const number of numbers) {
+      currentResult -= number;
+    }
     console.log(`Result of subtract: ${currentResult}`);
   }
-  function multiply(number) {
+  function multiply(numbers) {
     currentResult *= number;
     console.log(`Result of subtract: ${currentResult}`);
   }
-  function divide(number) {
+  function divide(numbers) {
     if (number !== 0) {
       currentResult /= number;
     }
