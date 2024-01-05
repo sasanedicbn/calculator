@@ -7,9 +7,14 @@ function calculator() {
     currentResult += number;
     console.log(`Result of add: ${currentResult}`);
   }
+  function subtract(number) {
+    currentResult -= number;
+    console.log(`Result of subtract: ${currentResult}`);
+  }
 
   return {
     add,
+    subtract,
   };
 }
 const logic = calculator();
