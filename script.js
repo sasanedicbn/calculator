@@ -3,9 +3,11 @@ function calculator() {
   let number1;
   let currentResult = 0;
   let operation;
-  function add(number) {
-    currentResult += number;
-    console.log(`Result of add: ${currentResult}`);
+  function add(...numbers) {
+    for (const number of numbers) {
+      currentResult += number;
+    }
+    console.log(`Result: ${currentResult}`);
   }
   function subtract(number) {
     currentResult -= number;
@@ -30,4 +32,4 @@ function calculator() {
 }
 const logic = calculator();
 
-logic.add(10);
+logic.add(4 + 4);
