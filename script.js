@@ -11,10 +11,15 @@ function calculator() {
     currentResult -= number;
     console.log(`Result of subtract: ${currentResult}`);
   }
+  function multiply(number) {
+    currentResult *= number;
+    console.log(`Result of subtract: ${currentResult}`);
+  }
 
   return {
     add,
     subtract,
+    multiply,
   };
 }
 const logic = calculator();
