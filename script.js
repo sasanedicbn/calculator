@@ -15,13 +15,15 @@ function calculator() {
     }
     console.log(`Result of subtract: ${currentResult}`);
   }
-  function multiply(numbers) {
+  function multiply(...numbers) {
     currentResult *= number;
     console.log(`Result of subtract: ${currentResult}`);
   }
   function divide(numbers) {
-    if (number !== 0) {
-      currentResult /= number;
+    for (const number of numbers) {
+      if (number !== 0) {
+        currentResult /= number;
+      }
     }
     console.log(`Result of subtract: ${currentResult}`);
   }
