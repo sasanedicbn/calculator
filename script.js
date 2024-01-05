@@ -1,6 +1,5 @@
 const buttons = document.querySelectorAll("button");
 function calculator() {
-  let number1;
   let currentResult = 0;
   let operation;
   function add(...numbers) {
@@ -43,5 +42,3 @@ const logic = calculator();
 
 const result = logic.subtract(10, 3);
 console.log(result);
-// logic.divide(8, 2);
-// logic.subtract(12, 2);
