@@ -7,25 +7,30 @@ function calculator() {
     for (const number of numbers) {
       currentResult += number;
     }
-    console.log(`Result: ${currentResult}`);
+    return currentResult;
   }
   function subtract(...numbers) {
+    console.log(...numbers);
     for (const number of numbers) {
       currentResult -= number;
     }
-    console.log(`Result of subtract: ${currentResult}`);
+    return currentResult;
   }
   function multiply(...numbers) {
-    currentResult *= number;
-    console.log(`Result of subtract: ${currentResult}`);
+    currentResult = 1;
+    console.log(numbers);
+    for (const number of numbers) {
+      currentResult *= number;
+    }
+    return currentResult;
   }
-  function divide(numbers) {
+  function divide(...numbers) {
     for (const number of numbers) {
       if (number !== 0) {
         currentResult /= number;
       }
     }
-    console.log(`Result of subtract: ${currentResult}`);
+    return currentResult;
   }
   return {
     add,
@@ -36,4 +41,7 @@ function calculator() {
 }
 const logic = calculator();
 
-logic.add(4 + 4);
+const result = logic.subtract(10, 3);
+console.log(result);
+// logic.divide(8, 2);
+// logic.subtract(12, 2);
