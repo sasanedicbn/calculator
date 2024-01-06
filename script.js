@@ -19,5 +19,6 @@ function calculator() {
 
   return {
     resetCalculator,
+    inputNumber,
   };
 }
