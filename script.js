@@ -1,20 +1,21 @@
 function calculator() {
   let firstNumber = "";
-  let secondNubmer = "";
+  let secondNumber = "";
   let operation = "";
   let result = 0;
 
   const resetCalculator = () => {
-    let firstNumber = "";
-    let secondNubmer = "";
-    let operation = "";
+    firstNumber = "";
+    secondNumber = "";
+    operation = "";
   };
   const inputNumber = (number) => {
     if (!operation) {
-      firstNumber += parseFloat(number);
+      firstNumber += number;
     } else {
-      secondNubmer += parseFloat(number);
+      secondNumber += number;
     }
+    return firstNumber + " " + operation + " " + secondNumber;
   };
 
   return {
