@@ -22,3 +22,5 @@ function calculator() {
     inputNumber,
   };
 }
+
+const logic = calculator();
