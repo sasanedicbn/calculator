@@ -18,6 +18,11 @@ function calculator() {
     return firstNumber + " " + operation + " " + secondNumber;
   };
 
+  const opfunction = (op) => {
+    if (!firstNumber && !secondNumber && !operation) {
+      // popuni firstnumber
+    }
+  };
   return {
     resetCalculator,
     inputNumber,
@@ -30,3 +35,6 @@ console.log(logic.inputNumber(2));
 console.log(logic.inputNumber(6));
 logic.inputNumber("-");
 console.log(logic.inputNumber(6));
+logic.inputNumber("+");
+console.log(logic.inputNumber(2));
+console.log(logic.inputNumber(4));
