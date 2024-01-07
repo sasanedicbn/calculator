@@ -20,7 +20,7 @@ function calculator() {
 
   const opfunction = (op) => {
     if (!firstNumber && !secondNumber && !operation) {
-      // popuni firstnumber
+      //   firstNumber += input
     } else if (operation) {
       firstNumber = secondNumber;
       operation = op;
@@ -31,19 +31,22 @@ function calculator() {
       //    neka fun sto bi mogla result izracunati
     }
   };
+
   return {
     resetCalculator,
     inputNumber,
     opfunction,
   };
 }
-
+numbers.forEach((el) => {
+  el.addEventListener("click");
+});
 const logic = calculator();
 
-console.log(logic.inputNumber(2));
-console.log(logic.inputNumber(6));
-logic.inputNumber("-");
-console.log(logic.inputNumber(6));
-logic.inputNumber("+");
-console.log(logic.inputNumber(2));
-console.log(logic.inputNumber(4));
+// console.log(logic.inputNumber(2));
+// console.log(logic.opfunction("+"));
+// console.log(logic.inputNumber(6));
+// //
+// logic.inputNumber("+");
+// console.log(logic.inputNumber(2));
+// console.log(logic.inputNumber(4));
