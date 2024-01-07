@@ -34,6 +34,7 @@ function calculator() {
   return {
     resetCalculator,
     inputNumber,
+    opfunction,
   };
 }
 
