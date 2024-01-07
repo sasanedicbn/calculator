@@ -1,3 +1,6 @@
+const equal = document.querySelector(".btn-operation-equal");
+const numbers = document.querySelectorAll(".btn");
+
 function calculator() {
   let firstNumber = "";
   let secondNumber = "";
