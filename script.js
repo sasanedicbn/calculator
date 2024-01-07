@@ -25,6 +25,8 @@ function calculator() {
       firstNumber = secondNumber;
       operation = op;
       firstNumber = "";
+    } else if (!firstNumber && operation && secondNumber) {
+      // popuni firstnumber
     }
   };
   return {
