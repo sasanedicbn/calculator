@@ -34,17 +34,26 @@ function calculator() {
       //    neka fun sto bi mogla result izracunati
     }
   };
-
+  console.log(firstNumber, secondNumber, operation);
   return {
     resetCalculator,
     inputNumber,
     opfunction,
   };
 }
+const logic = calculator();
+
+let currentInput = "";
 numbers.forEach((el) => {
   el.addEventListener("click", function (e) {
-    const operation = e.target.value;
-    console.log(operation);
+    const value = e.target.value;
+    if (value === "=") {
+      logic.opfunction();
+    } else {
+      currentInput += value;
+      console.log("Current Input:", currentInput);
+    }
+    // ovdje treba da prvi = drugi pa da se 1 onda ocisti kao onaj gore uslov gdje operation
   });
 });
-const logic = calculator();
+console.log(currentInput);
