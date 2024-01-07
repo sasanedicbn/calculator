@@ -39,7 +39,10 @@ function calculator() {
   };
 }
 numbers.forEach((el) => {
-  el.addEventListener("click");
+  el.addEventListener("click", function (e) {
+    const operation = e.target.value;
+    console.log(operation);
+  });
 });
 const logic = calculator();
 
