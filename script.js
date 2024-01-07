@@ -21,6 +21,10 @@ function calculator() {
   const opfunction = (op) => {
     if (!firstNumber && !secondNumber && !operation) {
       // popuni firstnumber
+    } else if (operation) {
+      firstNumber = secondNumber;
+      operation = op;
+      firstNumber = "";
     }
   };
   return {
