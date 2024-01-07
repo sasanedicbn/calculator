@@ -27,6 +27,8 @@ function calculator() {
       firstNumber = "";
     } else if (!firstNumber && operation && secondNumber) {
       // popuni firstnumber
+    } else if (firstNumber && secondNumber && operation) {
+      //    neka fun sto bi mogla result izracunati
     }
   };
   return {
