@@ -28,6 +28,7 @@ function calculator() {
     firstNumber = secondNumber;
     operation = op;
     outputSecond.textContent = secondNumber + operation;
+    firstNumber = "";
   };
 
   // const opfunction = (op) => {
