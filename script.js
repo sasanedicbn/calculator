@@ -1,5 +1,5 @@
 const equal = document.querySelector(".btn-operation-equal");
-const operation = document.querySelectorAll(".btn-operation");
+const operations = document.querySelectorAll(".btn-operation");
 const numbers = document.querySelectorAll(".btn-number");
 const outputFirst = document.querySelector(".output-first");
 const outputSecond = document.querySelector(".output-secondary");
@@ -52,8 +52,9 @@ numbers.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.value;
     logic.inputNumber(value);
-
-    // ovdje treba da prvi = drugi pa da se 1 onda ocisti kao onaj gore uslov gdje operation
   });
+});
+operations.forEach((el) => {
+  el.addEventListener("click");
 });
 console.log(currentInput);
