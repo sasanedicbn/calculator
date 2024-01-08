@@ -1,12 +1,13 @@
 const equal = document.querySelector(".btn-operation-equal");
 const operations = document.querySelectorAll(".btn-operation");
 const numbers = document.querySelectorAll(".btn-number");
-const outputFirst = document.querySelector(".output-first");
-const outputSecond = document.querySelector(".output-secondary");
+let outputFirst = document.querySelector(".output-first");
+let outputSecond = document.querySelector(".output-secondary");
 function calculator() {
   let firstNumber = "";
   let secondNumber = "";
   let operation = "";
+  let result = 0;
 
   const resetCalculator = () => {
     firstNumber = "";
@@ -23,20 +24,27 @@ function calculator() {
     return (outputFirst.textContent =
       firstNumber + "" + operation + "" + secondNumber);
   };
-
   const opfunction = (op) => {
-    if (!firstNumber && !secondNumber && !operation) {
-      //   firstNumber += input
-    } else if (operation) {
-      firstNumber = secondNumber;
-      operation = op;
-      firstNumber = "";
-    } else if (!firstNumber && operation && secondNumber) {
-      // popuni firstnumber
-    } else if (firstNumber && secondNumber && operation) {
-      //    neka fun sto bi mogla result izracunati
-    }
+    firstNumber = secondNumber;
+    operation = op;
+    outputSecond.textContent = secondNumber + operation;
   };
+
+  // const opfunction = (op) => {
+
+  //   if (!firstNumber && !secondNumber && !operation) {
+  //     //   firstNumber += input
+  //   } else if (operation) {
+  //     firstNumber = secondNumber;
+  //     operation = op;
+  //     firstNumber = "";
+  //   } else if (!firstNumber && operation && secondNumber) {
+  //     // popuni firstnumber
+  //   } else if (firstNumber && secondNumber && operation) {
+  //     //    neka fun sto bi mogla result izracunati
+  //   }
+  // };
+
   console.log(firstNumber, secondNumber, operation);
   return {
     resetCalculator,
@@ -56,7 +64,8 @@ numbers.forEach((el) => {
 operations.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.textContent;
-    logic.inputNumber(value);
+    logic.opfunction(value);
   });
 });
+
 console.log(currentInput);
