@@ -7,7 +7,6 @@ function calculator() {
   let firstNumber = "";
   let secondNumber = "";
   let operation = "";
-  let result = 0;
 
   const resetCalculator = () => {
     firstNumber = "";
