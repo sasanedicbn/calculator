@@ -57,3 +57,19 @@ operations.forEach((el) => {
     logic.opfunction(value);
   });
 });
+const logicOperation = (firstNumber, secondNumber, operation) => {
+  switch (operations) {
+    case "+":
+      return firstNumber + secondNumber;
+      break;
+    case "=":
+      return firstNumber - secondNumber;
+      break;
+    case "+":
+      return firstNumber / secondNumber;
+      break;
+    case "+":
+      return firstNumber * secondNumber;
+      break;
+  }
+};
