@@ -35,21 +35,6 @@ function calculator() {
     outputFirst.textContent = "";
   };
 
-  // const opfunction = (op) => {
-
-  //   if (!firstNumber && !secondNumber && !operation) {
-  //     //   firstNumber += input
-  //   } else if (operation) {
-  //     firstNumber = secondNumber;
-  //     operation = op;
-  //     firstNumber = "";
-  //   } else if (!firstNumber && operation && secondNumber) {
-  //     // popuni firstnumber
-  //   } else if (firstNumber && secondNumber && operation) {
-  //     //    neka fun sto bi mogla result izracunati
-  //   }
-  // };
-
   console.log(firstNumber, secondNumber, operation);
   return {
     resetCalculator,
@@ -72,5 +57,3 @@ operations.forEach((el) => {
     logic.opfunction(value);
   });
 });
-
-console.log(currentInput);
