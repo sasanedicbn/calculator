@@ -20,7 +20,9 @@ function calculator() {
     } else {
       secondNumber += number;
     }
-    return firstNumber + " " + operation + " " + secondNumber;
+
+    return (outputFirst.textContent =
+      firstNumber + "" + operation + "" + secondNumber);
   };
 
   const opfunction = (op) => {
@@ -49,6 +51,7 @@ let currentInput = "";
 numbers.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.value;
+    logic.inputNumber(value);
 
     // ovdje treba da prvi = drugi pa da se 1 onda ocisti kao onaj gore uslov gdje operation
   });
