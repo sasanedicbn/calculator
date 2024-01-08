@@ -57,6 +57,7 @@ numbers.forEach((el) => {
 operations.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.textContent;
+    logic.inputNumber(value);
   });
 });
 console.log(currentInput);
