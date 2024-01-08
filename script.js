@@ -55,6 +55,8 @@ numbers.forEach((el) => {
   });
 });
 operations.forEach((el) => {
-  el.addEventListener("click");
+  el.addEventListener("click", function (e) {
+    const value = e.target.textContent;
+  });
 });
 console.log(currentInput);
