@@ -3,6 +3,7 @@ const operations = document.querySelectorAll(".btn-operation");
 const numbers = document.querySelectorAll(".btn-number");
 let outputFirst = document.querySelector(".output-first");
 let outputSecond = document.querySelector(".output-secondary");
+
 function calculator() {
   let firstNumber = "";
   let secondNumber = "";
@@ -25,10 +26,12 @@ function calculator() {
       firstNumber + "" + operation + "" + secondNumber);
   };
   const opfunction = (op) => {
-    firstNumber = secondNumber;
+    secondNumber = firstNumber;
     operation = op;
     outputSecond.textContent = secondNumber + operation;
     firstNumber = "";
+    secondNumber = "";
+    operation = "";
     outputFirst.textContent = "";
   };
 
