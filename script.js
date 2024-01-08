@@ -1,5 +1,6 @@
 const equal = document.querySelector(".btn-operation-equal");
-const numbers = document.querySelectorAll(".btn");
+const operation = document.querySelectorAll(".btn-operation");
+const numbers = document.querySelectorAll(".btn-number");
 
 function calculator() {
   let firstNumber = "";
@@ -47,12 +48,7 @@ let currentInput = "";
 numbers.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.value;
-    if (value === "=") {
-      logic.opfunction();
-    } else {
-      currentInput += value;
-      console.log("Current Input:", currentInput);
-    }
+
     // ovdje treba da prvi = drugi pa da se 1 onda ocisti kao onaj gore uslov gdje operation
   });
 });
