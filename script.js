@@ -34,6 +34,20 @@ function calculator() {
     operation = "";
     outputFirst.textContent = "";
   };
+  const logicOperation = (firstNumber, secondNumber, operation) => {
+    firstNumber = Number(firstNumber);
+    secondNumber = Number(secondNumber);
+    switch (operation) {
+      case "+":
+        return firstNumber + secondNumber;
+      case "-":
+        return firstNumber - secondNumber;
+      case "/":
+        return firstNumber / secondNumber;
+      case "*":
+        return firstNumber * secondNumber;
+    }
+  };
 
   console.log(firstNumber, secondNumber, operation);
   return {
@@ -57,19 +71,3 @@ operations.forEach((el) => {
     logic.opfunction(value);
   });
 });
-const logicOperation = (firstNumber, secondNumber, operation) => {
-  switch (operations) {
-    case "+":
-      return firstNumber + secondNumber;
-      break;
-    case "=":
-      return firstNumber - secondNumber;
-      break;
-    case "+":
-      return firstNumber / secondNumber;
-      break;
-    case "+":
-      return firstNumber * secondNumber;
-      break;
-  }
-};
