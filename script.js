@@ -39,13 +39,15 @@ function calculator() {
     secondNumber = Number(secondNumber);
     switch (operation) {
       case "+":
-        return firstNumber + secondNumber;
+        return (firstNumber += secondNumber);
       case "-":
-        return firstNumber - secondNumber;
+        return (firstNumber -= secondNumber);
       case "/":
-        return firstNumber / secondNumber;
+        return (firstNumber /= secondNumber);
       case "*":
-        return firstNumber * secondNumber;
+        return (firstNumber *= secondNumber);
+      default:
+        return 0;
     }
   };
 
@@ -73,7 +75,7 @@ operations.forEach((el) => {
   });
 });
 equal.addEventListener("click", function () {
-  result = logic.logicOperation();
+  result = logic.logicOperation("+");
   outputFirst.textContent = result;
   outputSecond.textContent = "";
   // logic.resetCalculator();
