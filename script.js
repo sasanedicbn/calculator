@@ -34,7 +34,7 @@ function calculator() {
     operation = "";
     outputFirst.textContent = "";
   };
-  const logicOperation = (firstNumber, secondNumber, operation) => {
+  const logicOperation = (operation) => {
     firstNumber = Number(firstNumber);
     secondNumber = Number(secondNumber);
     switch (operation) {
@@ -54,6 +54,7 @@ function calculator() {
     resetCalculator,
     inputNumber,
     opfunction,
+    logicOperation,
   };
 }
 const logic = calculator();
@@ -70,4 +71,10 @@ operations.forEach((el) => {
     const value = e.target.textContent;
     logic.opfunction(value);
   });
+});
+equal.addEventListener("click", function () {
+  result = logic.logicOperation();
+  outputFirst.textContent = result;
+  outputSecond.textContent = "";
+  // logic.resetCalculator();
 });
