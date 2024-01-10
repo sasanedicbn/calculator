@@ -65,7 +65,9 @@ function calculator() {
     outputFirst.textContent = errorMessage;
     outputSecond.textContent = "";
   };
-
+  const deleteOneElement = () => {
+    firstNumber = firstNumber.slice(0, -1);
+  };
   console.log(firstNumber, secondNumber, operation);
   return {
     resetCalculator,
@@ -98,3 +100,4 @@ equal.addEventListener("click", function () {
 clearBtn.addEventListener("click", function () {
   logic.resetCalculator();
 });
+deleteBtn.addEventListener("click", function () {});
