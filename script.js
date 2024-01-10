@@ -1,6 +1,8 @@
 const equal = document.querySelector(".btn-operation-equal");
 const operations = document.querySelectorAll(".btn-operation");
 const numbers = document.querySelectorAll(".btn-number");
+const deleteBtn = document.querySelector(".btn-delete");
+const clearBtn = document.querySelector(".btn-clear");
 let outputFirst = document.querySelector(".output-first");
 let outputSecond = document.querySelector(".output-secondary");
 
