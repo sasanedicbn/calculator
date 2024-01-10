@@ -95,3 +95,6 @@ equal.addEventListener("click", function () {
   outputSecond.textContent = "";
   logic.resetCalculator();
 });
+clearBtn.addEventListener("click", function () {
+  logic.resetCalculator();
+});
