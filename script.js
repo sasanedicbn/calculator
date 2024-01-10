@@ -74,6 +74,7 @@ function calculator() {
     inputNumber,
     opfunction,
     logicOperation,
+    deleteOneElement,
   };
 }
 const logic = calculator();
