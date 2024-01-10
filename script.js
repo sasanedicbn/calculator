@@ -26,29 +26,42 @@ function calculator() {
       firstNumber + "" + operation + "" + secondNumber);
   };
   const opfunction = (op) => {
-    secondNumber = firstNumber;
     operation = op;
+    secondNumber = firstNumber;
     outputSecond.textContent = secondNumber + operation;
     firstNumber = "";
     secondNumber = "";
     operation = "";
     outputFirst.textContent = "";
   };
-  const logicOperation = (operation) => {
-    firstNumber = Number(firstNumber);
-    secondNumber = Number(secondNumber);
+  const logicOperation = () => {
+    firstNumber = parseFloat(firstNumber);
+    secondNumber = parseFloat(secondNumber);
     switch (operation) {
       case "+":
-        return (firstNumber += secondNumber);
+        result = secondNumber + firstNumber;
+        break;
       case "-":
-        return (firstNumber -= secondNumber);
+        result = firstNumber - secondNumber;
+        break;
       case "/":
-        return (firstNumber /= secondNumber);
+        if (secondNumber === 0) {
+          displayError("Cannot divide by 0");
+          return;
+        }
+        result = firstNumber / secondNumber;
+        break;
       case "*":
-        return (firstNumber *= secondNumber);
+        result = firstNumber * secondNumber;
+        break;
       default:
-        return 0;
+        result = 0;
     }
+    return result;
+  };
+  const displayError = (errorMessage) => {
+    outputFirst.textContent = errorMessage;
+    outputSecond.textContent = "";
   };
 
   console.log(firstNumber, secondNumber, operation);
@@ -75,8 +88,8 @@ operations.forEach((el) => {
   });
 });
 equal.addEventListener("click", function () {
-  result = logic.logicOperation("+");
+  result = logic.logicOperation();
   outputFirst.textContent = result;
   outputSecond.textContent = "";
-  // logic.resetCalculator();
+  logic.resetCalculator();
 });
