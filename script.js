@@ -17,31 +17,37 @@ function calculator() {
     secondNumber = "";
     operation = "";
   };
+
   const inputNumber = (number) => {
-    if (!operation) {
+    if (!operation || (operation && !secondNumber)) {
       firstNumber += number;
+    } else if (operation && secondNumber) {
+      firstNumber += number;
+    } else if (firstNumber && secondNumber && operation) {
+      logicOperation();
     }
-    // console.log(firstNumber, secondNumber);
-    return (outputFirst.textContent =
-      firstNumber + "" + operation + "" + secondNumber);
+    console.log("From inputNumber fn firstNum: ", firstNumber);
+    console.log("From inputNumber fn secondNum: ", secondNumber);
+    console.log("Operation: ", operation);
+    console.log("Result:", result);
+    return (outputFirst.textContent = firstNumber);
   };
   const setOperation = (op) => {
     operation = op;
     secondNumber = firstNumber;
-    console.log(firstNumber, secondNumber, operation);
     firstNumber = "";
-    secondNumber = "";
-    operation = "";
-
     outputSecond.textContent = secondNumber + operation;
     outputFirst.textContent = "";
   };
-  const logicOperation = () => {
+  function addAB(a, b) {
+    return a + b;
+  }
+  function logicOperation() {
     firstNumber = parseFloat(firstNumber);
     secondNumber = parseFloat(secondNumber);
     switch (operation) {
       case "+":
-        result = secondNumber + firstNumber;
+        addAB(firstNumber, secondNumber);
         break;
       case "-":
         result = firstNumber - secondNumber;
@@ -60,7 +66,7 @@ function calculator() {
         result = 0;
     }
     return result;
-  };
+  }
   const displayError = (errorMessage) => {
     outputFirst.textContent = errorMessage;
     outputSecond.textContent = "";
@@ -96,9 +102,9 @@ operations.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.textContent;
     logic.setOperation(value);
-    console.log("prvi broj: ", logic.getNum1());
-    console.log("drugi broj: ", logic.getNum2());
-    console.log("operacija: ", logic.getOperation());
+    // console.log("prvi broj: ", logic.getNum1());
+    // console.log("drugi broj: ", logic.getNum2());
+    // console.log("operacija: ", logic.getOperation());
   });
 });
 equal.addEventListener("click", function () {
