@@ -20,20 +20,20 @@ function calculator() {
   const inputNumber = (number) => {
     if (!operation) {
       firstNumber += number;
-    } else {
-      secondNumber += number;
     }
-
+    // console.log(firstNumber, secondNumber);
     return (outputFirst.textContent =
       firstNumber + "" + operation + "" + secondNumber);
   };
-  const opfunction = (op) => {
+  const setOperation = (op) => {
     operation = op;
     secondNumber = firstNumber;
-    outputSecond.textContent = secondNumber + operation;
+    console.log(firstNumber, secondNumber, operation);
     firstNumber = "";
     secondNumber = "";
     operation = "";
+
+    outputSecond.textContent = secondNumber + operation;
     outputFirst.textContent = "";
   };
   const logicOperation = () => {
@@ -68,11 +68,17 @@ function calculator() {
   const deleteOneElement = () => {
     firstNumber = firstNumber.slice(0, -1);
   };
+  const getNum1 = () => firstNumber;
+  const getNum2 = () => secondNumber;
+  const getOperation = () => operation;
   console.log(firstNumber, secondNumber, operation);
   return {
+    getNum1,
+    getNum2,
+    getOperation,
     resetCalculator,
     inputNumber,
-    opfunction,
+    setOperation,
     logicOperation,
     deleteOneElement,
   };
@@ -89,7 +95,10 @@ numbers.forEach((el) => {
 operations.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.textContent;
-    logic.opfunction(value);
+    logic.setOperation(value);
+    console.log("prvi broj: ", logic.getNum1());
+    console.log("drugi broj: ", logic.getNum2());
+    console.log("operacija: ", logic.getOperation());
   });
 });
 equal.addEventListener("click", function () {
@@ -100,7 +109,10 @@ equal.addEventListener("click", function () {
 });
 clearBtn.addEventListener("click", function () {
   logic.resetCalculator();
+  outputFirst.textContent = "";
+  outputSecond.textContent = "";
 });
 deleteBtn.addEventListener("click", function () {
   logic.deleteOneElement();
+  // diplay on screen
 });
