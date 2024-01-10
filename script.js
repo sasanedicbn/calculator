@@ -101,4 +101,6 @@ equal.addEventListener("click", function () {
 clearBtn.addEventListener("click", function () {
   logic.resetCalculator();
 });
-deleteBtn.addEventListener("click", function () {});
+deleteBtn.addEventListener("click", function () {
+  logic.deleteOneElement();
+});
