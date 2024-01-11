@@ -3,6 +3,7 @@ const operations = document.querySelectorAll(".btn-operation");
 const numbers = document.querySelectorAll(".btn-number");
 const deleteBtn = document.querySelector(".btn-delete");
 const clearBtn = document.querySelector(".btn-clear");
+const dotBtn = document.querySelector(".btn-dot");
 let outputFirst = document.querySelector(".output-first");
 let outputSecond = document.querySelector(".output-secondary");
 
@@ -33,10 +34,16 @@ function calculator() {
     }
     if (secondNumber !== "") {
       logicOperation();
+      secondNumber = result.toString();
+      result = null;
     }
     secondNumber = firstNumber;
     firstNumber = "";
     operation = op;
+    console.log("setOperation first num", firstNumber);
+    console.log("setOperation second num", secondNumber);
+    console.log("setOperation operation num", operation);
+    console.log("setOperation operation num", result);
 
     outputSecond.textContent = secondNumber + operation;
     outputFirst.textContent = "";
@@ -89,6 +96,11 @@ function calculator() {
       firstNumber = firstNumber.slice(0, -1);
     }
   };
+  const inputDecimal = () => {
+    if (!firstNumber.includes(".")) {
+      firstNumber += ".";
+    }
+  };
 
   const getNum1 = () => firstNumber;
   const getNum2 = () => secondNumber;
@@ -106,6 +118,7 @@ function calculator() {
     logicOperation,
     deleteOneElement,
     displayUX,
+    inputDecimal,
   };
 }
 const logic = calculator();
@@ -135,4 +148,8 @@ clearBtn.addEventListener("click", function () {
 deleteBtn.addEventListener("click", function () {
   logic.deleteOneElement();
   logic.displayUX(logic.getNum1(), outputSecond.textContent);
+});
+dotBtn.addEventListener("click", function () {
+  logic.inputDecimal();
+  logic.displayUX(logic.getNum1());
 });
