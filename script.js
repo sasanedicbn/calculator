@@ -76,18 +76,26 @@ function calculator() {
     secondNumber = "";
     operation = "";
   }
+  const displayUX = (firstOutput, secondOutput) => {
+    outputFirst.textContent = firstOutput;
+    outputSecond.textContent = secondOutput;
+  };
   const displayError = (errorMessage) => {
     outputFirst.textContent = errorMessage;
     outputSecond.textContent = "";
   };
   const deleteOneElement = () => {
-    firstNumber = firstNumber.slice(0, -1);
+    if (firstNumber.length > 0) {
+      firstNumber = firstNumber.slice(0, -1);
+    }
   };
+
   const getNum1 = () => firstNumber;
   const getNum2 = () => secondNumber;
   const getOperation = () => operation;
   const getResult = () => result;
   console.log(firstNumber, secondNumber, operation);
+
   return {
     getResult,
     getNum1,
@@ -98,6 +106,7 @@ function calculator() {
     setOperation,
     logicOperation,
     deleteOneElement,
+    displayUX,
   };
 }
 const logic = calculator();
@@ -117,16 +126,12 @@ operations.forEach((el) => {
 });
 equal.addEventListener("click", function () {
   result = logic.logicOperation();
-  outputFirst.textContent = logic.getResult();
-  outputSecond.textContent = "";
+
   logic.resetCalculator();
 });
 clearBtn.addEventListener("click", function () {
   logic.resetCalculator();
-  outputFirst.textContent = "";
-  outputSecond.textContent = "";
 });
 deleteBtn.addEventListener("click", function () {
   logic.deleteOneElement();
-  // diplay on screen
 });
