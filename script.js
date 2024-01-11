@@ -10,7 +10,7 @@ function calculator() {
   let firstNumber = "";
   let secondNumber = "";
   let operation = "";
-  let result = 0;
+  let result;
 
   const resetCalculator = () => {
     firstNumber = "";
@@ -23,25 +23,30 @@ function calculator() {
       firstNumber += number;
     } else if (operation && secondNumber) {
       firstNumber += number;
-    } else if (firstNumber && secondNumber && operation) {
+    }
+    return (outputFirst.textContent = firstNumber);
+  };
+  const setOperation = (op) => {
+    if (secondNumber !== "") {
       logicOperation();
     }
+    secondNumber = firstNumber;
+    firstNumber = "";
+    operation = op;
+
+    outputSecond.textContent = secondNumber + operation;
+    outputFirst.textContent = "";
     console.log("From inputNumber fn firstNum: ", firstNumber);
     console.log("From inputNumber fn secondNum: ", secondNumber);
     console.log("Operation: ", operation);
     console.log("Result:", result);
-    return (outputFirst.textContent = firstNumber);
-  };
-  const setOperation = (op) => {
-    operation = op;
-    secondNumber = firstNumber;
-    firstNumber = "";
-    outputSecond.textContent = secondNumber + operation;
-    outputFirst.textContent = "";
   };
   function addAB(a, b) {
-    return a + b;
+    return (result = a + b);
   }
+  // function minusAb(a, b) {
+  //   return a - b;
+  // }
   function logicOperation() {
     firstNumber = parseFloat(firstNumber);
     secondNumber = parseFloat(secondNumber);
@@ -50,22 +55,30 @@ function calculator() {
         addAB(firstNumber, secondNumber);
         break;
       case "-":
-        result = firstNumber - secondNumber;
+        result = secondNumber - firstNumber;
         break;
       case "/":
         if (secondNumber === 0) {
           displayError("Cannot divide by 0");
           return;
         }
-        result = firstNumber / secondNumber;
+        result = secondNumber / firstNumber;
         break;
       case "*":
         result = firstNumber * secondNumber;
         break;
       default:
-        result = 0;
+        return;
     }
-    return result;
+
+    firstNumber = result;
+    secondNumber = "";
+    operation = "";
+
+    console.log("Finall firstNum: ", firstNumber);
+    console.log("Finall secondNum: ", secondNumber);
+    console.log("Finall Operation: ", operation);
+    console.log("Result: FInaly", result);
   }
   const displayError = (errorMessage) => {
     outputFirst.textContent = errorMessage;
@@ -77,8 +90,10 @@ function calculator() {
   const getNum1 = () => firstNumber;
   const getNum2 = () => secondNumber;
   const getOperation = () => operation;
+  const getResult = () => result;
   console.log(firstNumber, secondNumber, operation);
   return {
+    getResult,
     getNum1,
     getNum2,
     getOperation,
@@ -109,7 +124,7 @@ operations.forEach((el) => {
 });
 equal.addEventListener("click", function () {
   result = logic.logicOperation();
-  outputFirst.textContent = result;
+  outputFirst.textContent = logic.getResult();
   outputSecond.textContent = "";
   logic.resetCalculator();
 });
