@@ -94,7 +94,6 @@ function calculator() {
   const getNum2 = () => secondNumber;
   const getOperation = () => operation;
   const getResult = () => result;
-  console.log(firstNumber, secondNumber, operation);
 
   return {
     getResult,
