@@ -126,12 +126,14 @@ operations.forEach((el) => {
 });
 equal.addEventListener("click", function () {
   result = logic.logicOperation();
-
+  logic.displayUX(logic.getResult(), "");
   logic.resetCalculator();
 });
 clearBtn.addEventListener("click", function () {
   logic.resetCalculator();
+  logic.displayUX();
 });
 deleteBtn.addEventListener("click", function () {
   logic.deleteOneElement();
+  logic.displayUX(logic.getNum1(), outputSecond.textContent);
 });
