@@ -10,7 +10,7 @@ function calculator() {
   let firstNumber = "";
   let secondNumber = "";
   let operation = "";
-  let result;
+  let result = null;
 
   const resetCalculator = () => {
     firstNumber = "";
@@ -27,6 +27,10 @@ function calculator() {
     return (outputFirst.textContent = firstNumber);
   };
   const setOperation = (op) => {
+    if (result !== null) {
+      firstNumber = result.toString();
+      result = null;
+    }
     if (secondNumber !== "") {
       logicOperation();
     }
