@@ -40,11 +40,6 @@ function calculator() {
     secondNumber = firstNumber;
     firstNumber = "";
     operation = op;
-    console.log("setOperation first num", firstNumber);
-    console.log("setOperation second num", secondNumber);
-    console.log("setOperation operation num", operation);
-    console.log("setOperation operation num", result);
-
     outputSecond.textContent = secondNumber + operation;
     outputFirst.textContent = "";
   };
