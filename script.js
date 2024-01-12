@@ -122,7 +122,6 @@ function calculator() {
 }
 const logic = calculator();
 
-let currentInput = "";
 numbers.forEach((el) => {
   el.addEventListener("click", function (e) {
     const value = e.target.value;
