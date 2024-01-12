@@ -37,6 +37,7 @@ function calculator() {
       secondNumber = result.toString();
       result = null;
     }
+
     secondNumber = firstNumber;
     firstNumber = "";
     operation = op;
