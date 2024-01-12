@@ -74,6 +74,9 @@ function calculator() {
         return;
     }
 
+    console.log("first num:", firstNumber);
+    console.log("first sec:", secondNumber);
+    console.log("first operator:", operation);
     firstNumber = result;
     secondNumber = "";
     operation = "";
